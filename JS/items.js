@@ -1,4 +1,4 @@
-const post = [];
+const posts = [];
 
 const images = [
   "https://plus.unsplash.com/premium_photo-1681223965400-9abd770a2879?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
@@ -10,4 +10,17 @@ const images = [
   "https://plus.unsplash.com/premium_photo-1670793631527-a0ce6adec101?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
 ];
 
-let imageIndex=0;
+let imageIndex = 0;
+
+for (let i = 0; i < 80; i++) {
+  let item = {
+    id: i,
+    title: `Post ${i}`,
+    image: images[imageIndex],
+  };
+  posts.push(item);
+  imageIndex++;
+  if (imageIndex > images.length - 1) imageIndex = 0;
+}
+
+console.log(posts)
