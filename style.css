@@ -13,6 +13,7 @@ body {
 
 img {
   width: 100%;
+  object-fit: cover;
 }
 
 main {
@@ -54,8 +55,6 @@ main {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 300px;
-  background-color: red;
 }
 
 .overlay {
