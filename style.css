@@ -71,3 +71,8 @@ img{
     opacity: 0;
     transition: 0.5s;
 }
+
+.post:hover .overlay{
+    opacity: 1;
+    cursor: pointer;
+}
