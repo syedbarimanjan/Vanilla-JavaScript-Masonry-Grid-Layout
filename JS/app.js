@@ -37,4 +37,10 @@ function generateMasonryGrid(columns, posts) {
   }
 }
 
+let prevScreenSize = window.innerWidth;
+
+window.addEventListener("resize",()=>{
+    imageIndex=0;
+})
+
 generateMasonryGrid(4, posts);
