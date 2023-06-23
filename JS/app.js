@@ -14,6 +14,27 @@ function generateMasonryGrid(columns, posts) {
     const column = i % columns;
     columnWrappers[`column${column}`].push(posts[i]);
   }
+  for (let i = 0; i < columns; i++) {
+    let columnPosts = columnWrappers[`column${i}`];
+    let columnElement = document.createElement("div");
+    columnElement.classList.add("column");
+
+    columnPosts.forEach((post) => {
+      let postDiv = document.createElement("div");
+      postDiv.classList.add("post");
+      let imageElement = document.createElement("img");
+      imageElement.src = post.image;
+      let overlayElement = document.createElement("div");
+      overlayElement.classList.add("overlay");
+      let titleElement = document.createElement("h3");
+      titleElement.innerText = post.title;
+
+      overlayElement.appendChild(titleElement);
+      postDiv.append(imageElement, overlayElement);
+      columnElement.appendChild(postDiv);
+    });
+    container.appendChild(columnElement);
+  }
 }
 
 generateMasonryGrid(4, posts);
