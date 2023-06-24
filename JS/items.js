@@ -12,7 +12,7 @@ const images = [
 
 let imageIndex = 0;
 
-for (let i = 0; i < 80; i++) {
+for (let i = 1; i < 81; i++) {
   let item = {
     id: i,
     title: `Post ${i}`,
@@ -24,4 +24,3 @@ for (let i = 0; i < 80; i++) {
 }
 
 console.log(posts);
-export default posts;

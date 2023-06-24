@@ -1,5 +1,3 @@
-import posts from "./items.js";
-
 const container = document.querySelector(".container");
 
 function generateMasonryGrid(columns, posts) {
@@ -39,10 +37,28 @@ function generateMasonryGrid(columns, posts) {
 
 let prevScreenSize = window.innerWidth;
 
-window.addEventListener("resize",()=>{
-    imageIndex=0;
+window.addEventListener("resize", () => {
+  imageIndex = 0;
 
-    
-})
+  if (window.innerWidth < 600 && prevScreenSize >= 600) {
+    generateMasonryGrid(1, posts);
+  } else if (
+    window.innerWidth >= 600 &&
+    window.innerWidth < 1000 &&
+    (prevScreenSize < 600 || prevScreenSize >= 1000)
+  ) {
+    generateMasonryGrid(2, posts);
+  } else if (window.innerWidth >= 1000 && prevScreenSize < 1000) {
+    generateMasonryGrid(4, posts);
+  }
 
-generateMasonryGrid(4, posts);
+  prevScreenSize = window.innerWidth;
+});
+
+if (prevScreenSize < 600) {
+  generateMasonryGrid(1, posts);
+} else if (prevScreenSize >= 600 && prevScreenSize < 1000) {
+  generateMasonryGrid(2, posts);
+} else {
+  generateMasonryGrid(4, posts);
+}
